@@ -1,15 +1,15 @@
 section .data
-    path DB "/home/uirian/Code/assembly-course/code/files/arquivo.txt", 0
+    path DB "/home/uirian/Code/assembly-exercises/test.txt", 0
     buffer DB "Write", 10, "to", 10, "file.", 0
 
     ; flags
-    O_CREAT: DB 100o
-    O_WRONLY: DB 1o
+    O_CREAT: DB 100o ; Create file if it doesn't exist
+    O_WRONLY: DB 1o  ; Write only
 section .text
 
 global main
 main:
-    mov eax, 5        ; open file/create
+    mov eax, 5        	; open file/create
     mov ebx, path
     mov ecx, O_CREAT
     or ecx, O_WRONLY
@@ -17,7 +17,7 @@ main:
     int 80h
 
     mov ebx, eax
-    mov eax, 4
+    mov eax, 4			; write buffer to file
     mov ecx, buffer
     mov edx, 14
     int 80h

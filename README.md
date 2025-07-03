@@ -29,4 +29,9 @@ gdb
 ### x86:
 ```bash
 gdb ./build/<assembler>/x86/<program>
+    layout asm
+    break main
+    run
+    # stepi
+    # info register eax
 ```

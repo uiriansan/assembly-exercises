@@ -1,7 +1,6 @@
 ; https://en.wikipedia.org/wiki/INT_10H
-
-org 0x7c00
 bits 16
+org 0x7c00
 
 main:
     mov ah, 00h
@@ -12,7 +11,7 @@ draw_loop:
     mov ah, 0ch
     mov al, dl
     and al, 4
-    mov bh, 1
+    mov bh, 0
     int 10h
 
     inc cx

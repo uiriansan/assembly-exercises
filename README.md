@@ -1,16 +1,32 @@
-### Build:
+## Build
 ```bash
 make
 ```
 
-### Run:
+## Run
 
-#### 16-bit:
+### x16:
 ```bash
 qemu-system-i386 -fda /build/<assembler>/x16/<program>.bin
 ```
 
-#### 86-bit:
+### x86:
 ```bash
 ./build/<assembler>/x86/<program>
+```
+
+## Debug
+
+### x16:
+```bash
+qemu-system-i386 -fda /build/<assembler>/x16/<program>.bin -s
+gdb
+    target remote :1234
+    # continue
+    # info register ax
+```
+
+### x86:
+```bash
+gdb ./build/<assembler>/x86/<program>
 ```

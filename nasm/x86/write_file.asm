@@ -1,5 +1,5 @@
 section .data
-    path DB "/home/uirian/Code/assembly-exercises/test.txt", 0
+    path DB "/home/uirian/Code/assembly-exercises/build/test.txt", 0
     buffer DB "Write", 10, "to", 10, "file.", 0
 
     ; flags

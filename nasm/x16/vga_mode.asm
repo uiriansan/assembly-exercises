@@ -15,7 +15,7 @@ draw_loop:
     int 10h
 
     inc cx
-    cmp cx, 319
+    cmp cx, 320
     jne draw_loop
 
     mov cx, 0

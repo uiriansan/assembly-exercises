@@ -7,22 +7,15 @@ main:
     mov al, 13h
     int 10h
 
-draw_loop:
-    mov ah, 0ch
-    mov al, dl
-    and al, 4
-    mov bh, 0
-    int 10h
+    push 0xa000
+    pop es
 
-    inc cx
-    cmp cx, 320
-    jne draw_loop
+    mov al, 0x1         ; blue
+    mov cx, 320*200     ; VGA mode 13 is a linear frame buffer
+    xor di, di
+    rep stosb           ; mov [es:di], 'al' and increment 'di' 'cx' number of times
 
-    mov cx, 0
-    inc dx
-    cmp dx, 200
-    jne draw_loop
-
+    cli
     hlt
 halt:
     jmp halt
